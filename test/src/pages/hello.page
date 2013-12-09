@@ -1,0 +1,4 @@
+<apex:page sidebar="false">
+  {! IF ( CONTAINS('salesforce.com','force.com'), 'Yep', 'Nah') }
+{! IF ( DAY(TODAY()) > 14, 'After the 14th', 'On or before the 14th') }
+</apex:page>

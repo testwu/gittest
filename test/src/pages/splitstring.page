@@ -1,0 +1,16 @@
+<apex:page controller="splitstring">
+     <apex:form >
+         <apex:pageBlock >
+             Enter candidate name to search:<apex:inputText value="{!allsearch}"/>
+             <apex:commandButton value="Search" action="{!checkdatainaccount}"/>
+             <apex:pageBlockTable value="{!allcan}" var="cand">
+                 <apex:column headerValue="Name">
+                     <apex:inputField value="{!cand.name}"/>
+                 </apex:column>
+                 <apex:column headerValue="FirstName">
+                     <apex:inputField value="{!cand.First_Name__c}"/>
+                 </apex:column>
+             </apex:pageBlockTable>
+         </apex:pageBlock>
+     </apex:form>
+  </apex:page>

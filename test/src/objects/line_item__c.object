@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>invoice_statement__c</fullName>
+        <externalId>false</externalId>
+        <label>invoice statement</label>
+        <referenceTo>invoice_statement__c</referenceTo>
+        <relationshipLabel>line items</relationshipLabel>
+        <relationshipName>line_items</relationshipName>
+        <relationshipOrder>1</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>merchandise__c</fullName>
+        <externalId>false</externalId>
+        <label>merchandise</label>
+        <referenceTo>merchandise__c</referenceTo>
+        <relationshipLabel>line items</relationshipLabel>
+        <relationshipName>line_items</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>unit_price__c</fullName>
+        <externalId>false</externalId>
+        <label>unit price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>units_sold__c</fullName>
+        <externalId>false</externalId>
+        <label>units sold</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>value__c</fullName>
+        <externalId>false</externalId>
+        <formula>unit_price__c  *  units_sold__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>value</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <label>line item</label>
+    <nameField>
+        <label>line item number</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>line items</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>order_in_stock</fullName>
+        <active>true</active>
+        <errorConditionFormula>IF(
+ISNEW(),
+merchandise__r.Total_Inventory__c &lt; units_sold__c,
+IF( 
+      units_sold__c &lt; PRIORVALUE( units_sold__c ),
+       FALSE,
+       merchandise__r.Total_Inventory__c &lt; (units_sold__c-PRIORVALUE( units_sold__c ))
+)
+)</errorConditionFormula>
+        <errorDisplayField>units_sold__c</errorDisplayField>
+        <errorMessage>You have ordered more items than we have in the stock</errorMessage>
+    </validationRules>
+</CustomObject>

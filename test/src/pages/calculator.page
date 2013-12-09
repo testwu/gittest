@@ -1,0 +1,16 @@
+<apex:page controller="calculator" sidebar="false" showHeader="false">
+    <apex:form >
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:pageBlock title="calculator">
+            Enter num1:<apex:inputText value="{!num1}"/><br/>
+            Enter num2:<apex:inputText value="{!num2}"/><br/>
+            <apex:commandButton value="+" action="{!add}"/>
+            <apex:commandButton value="-" action="{!sub}"/>
+            <apex:commandButton value="*" action="{!mul}"/>
+            <apex:commandButton value="/" action="{!div}"/><br/>
+            </apex:pageBlock>
+            <apex:pageBlock rendered="{!boolvalue}">
+                Your O/p value:<apex:outputText value="{!res}"/><br/>
+            </apex:pageBlock>
+    </apex:form>                               
+  </apex:page>

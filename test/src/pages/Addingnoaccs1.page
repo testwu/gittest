@@ -1,0 +1,19 @@
+<apex:page standardController="account" extensions="Addingnoaccs1">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!allaccs}" var="accs">
+                <apex:column headerValue="Name">
+                    <apex:inputText value="{!accs.name}"/>
+                </apex:column>
+                <apex:column headerValue="Phone">
+                    <apex:inputText value="{!accs.phone}"/>
+                </apex:column>
+            </apex:pageBlockTable>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="addrow" action="{!addrow}"/>
+                <apex:commandButton value="removerow" action="{!removerow}"/>
+                <apex:commandButton value="save" action="{!save}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>     
+ </apex:page>

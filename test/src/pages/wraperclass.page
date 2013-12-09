@@ -1,0 +1,15 @@
+<apex:page controller="wraperclass" id="refresh">
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!alldatatoshow}" var="datatoshow">
+                <apex:column headerValue="CheckBox">
+                    <apex:inputCheckbox value="{!datatoshow.trueOrFalse}"/>
+                 </apex:column>
+                 <apex:column headerValue="Name">
+                    <apex:inputtext value="{!datatoshow.allcandidates.First_Name__c}"/>
+                 </apex:column>
+             </apex:pageBlockTable>
+             <apex:commandButton value="Delete" action="{!deleterecords}" reRender="refresh"/>
+        </apex:pageBlock>
+    </apex:form>
+  </apex:page>

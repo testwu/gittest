@@ -1,0 +1,19 @@
+<apex:page standardController="Account" sidebar="false" showHeader="false" extensions="StandardControllerClass">
+     <apex:form >
+         <apex:pageBlock >
+             <apex:pageBlockSection columns="3">
+                 <apex:inputField value="{!Account.name}"/>
+                  <apex:inputField value="{!Account.Active__c}"/>
+                   <apex:inputField value="{!Account.AccountNumber}"/>
+                    <apex:inputField value="{!Account.Jigsaw}"/>
+                     <apex:inputField value="{!Account.Industry}"/>
+                      <apex:inputField value="{!Account.Phone}"/>
+                      
+             </apex:pageBlockSection>
+             <apex:pageBlockButtons location="bottom">
+                 <apex:commandButton value="Save" action="{!CustomSave}"/>
+                  <apex:commandButton value="Cancel" action="{!CustomCancel}"/>
+             </apex:pageBlockButtons>
+         </apex:pageBlock>
+     </apex:form>
+</apex:page>

@@ -1,0 +1,20 @@
+<apex:page controller="Allsearchdata" showHeader="false" sidebar="false">
+    <apex:form >
+        <apex:pageBlock >
+            Enter account name to search:<apex:inputText value="{!searchvalue}"/><br/>
+            <apex:outputText value="{!outputtext}"></apex:outputText>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="search" action="{!searchdata}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>        
+        <apex:pageBlock >
+            <apex:pageBlockTable value="{!allacc}" var="Allaccdata">
+                <apex:column value="{!Allaccdata.id}"/>
+                <apex:column value="{!Allaccdata.name}"/>
+                <apex:column value="{!Allaccdata.AccountNumber}"/>
+                <apex:column value="{!Allaccdata.AnnualRevenue}"/>
+                <apex:column value="{!Allaccdata.Active__c}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+  </apex:page>
