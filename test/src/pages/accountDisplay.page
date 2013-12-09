@@ -1,9 +1,0 @@
-<apex:page standardController="Account" sidebar="false" showHeader="false" standardStylesheets="false">
-<apex:stylesheet value=" {! URLFOR($Resource.Styles, 'styles.css')} "/>
-<ul>
-<apex:repeat value="{!account.contacts}" var="item">
-<li><apex:outputText value="{!item.name}"/></li>
-<li><apex:outputText value="{!item.phone}"/></li>
-</apex:repeat>
-</ul>
-</apex:page>

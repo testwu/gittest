@@ -1,8 +1,0 @@
-<apex:page controller="ActionPollar">
-    <apex:form >
-        <apex:pageBlock id="Refresh">
-            Increasing Number:<apex:outputText value="{!numberincreasedto}"></apex:outputText>
-            <apex:actionPoller interval="10" action="{!callmethod}" reRender="Refresh"/>
-        </apex:pageBlock>
-    </apex:form>
-  </apex:page>

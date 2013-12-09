@@ -1,8 +1,0 @@
-<apex:page controller="reference">
-<apex:form >
-  <h1>Congratulations</h1>
-  This is your new Page:hello world<br/>
-  <b>hello world</b><br/>
-  <apex:commandButton value="reference" action="{!onepagetoanother}"/>
-</apex:form>
-    </apex:page>
